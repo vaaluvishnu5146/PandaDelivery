@@ -1,0 +1,11 @@
+/* SEACRH INPUT */
+
+#inputWrapper {
+  > svg {
+    margin: 0 15px 0 0;
+  }
+  > input {
+    font-size: 1.2rem;
+    color: #9c9c9c;
+  }
+}

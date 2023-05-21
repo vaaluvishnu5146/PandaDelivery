@@ -4,7 +4,7 @@ import IconCta from "../../Atoms/Buttons/IconCta";
 import ICONS from "../../Assets/Images/Icons";
 import IMAGES from "../../Assets/Images";
 
-export default function Appbar() {
+export default function Appbar({ startEnhancer = null, endEnhancer = null }) {
   return (
     <Box
       sx={{
@@ -16,16 +16,8 @@ export default function Appbar() {
         boxSizing: "border-box",
       }}
     >
-      <IconCta Icon={ICONS.Menu} />
-      <Box
-        sx={{
-          width: "65px",
-          height: "65px",
-          borderRadius: "50%",
-          backgroundImage: `url(${IMAGES.avatar})`,
-          backgroundSize: "contain",
-        }}
-      ></Box>
+      {startEnhancer}
+      {endEnhancer}
     </Box>
   );
 }

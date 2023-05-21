@@ -5,6 +5,7 @@ import IMAGES from "../../Assets/Images";
 export default function ScrollableMini({ data = [] }) {
   return (
     <Box
+      className="scrollable"
       sx={{
         display: "flex",
         flexDirection: "row",
@@ -16,14 +17,16 @@ export default function ScrollableMini({ data = [] }) {
       {data &&
         data.map((d, index) => (
           <Box
+            key={`restaurant-clickable-icon-${index}`}
             sx={{
-              minWidth: "80px",
-              height: "80px",
+              minWidth: "75px",
+              height: "75px",
               borderRadius: "50%",
               backgroundImage: `url(${d.logo})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "contain",
               margin: "0 15px 0 0",
+              border: "2px solid #dcdcdc",
             }}
           ></Box>
         ))}

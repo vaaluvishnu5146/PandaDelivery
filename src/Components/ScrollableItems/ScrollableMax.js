@@ -1,15 +1,19 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import IMAGES from "../../Assets/Images";
+import { useNavigate } from "react-router-dom";
+import BadgeC from "../Badge/BadgeC";
 
-export default function ScrollableMax({ data = [] }) {
+export default function ScrollableMax({ data = {} }) {
+  const navigate = useNavigate();
   return (
-    <Box id="products-scroll-card">
+    <Box>
       <Typography variant="h5" textAlign={"start"}>
         Best Choice
       </Typography>
       <Box sx={{ height: "30px" }}></Box>
       <Box
+        className="scrollable"
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -21,6 +25,7 @@ export default function ScrollableMax({ data = [] }) {
         {data &&
           data.map((d, index) => (
             <Box
+              onClick={() => navigate(`/food/${d?.id}`)}
               key={`food-card-${index}`}
               sx={{
                 display: "flex",
@@ -65,20 +70,12 @@ export default function ScrollableMax({ data = [] }) {
                   height: "20px",
                 }}
               ></Box>
-              <Box
+              <BadgeC
+                label={`$${d.price}`}
                 sx={{
-                  minWidth: "50px",
-                  minHeight: "20px",
                   background: "#FFFFFF",
-                  borderRadius: "20px",
-                  padding: "5px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                 }}
-              >
-                <Typography variant="body1">${d.price}</Typography>
-              </Box>
+              />
             </Box>
           ))}
       </Box>
